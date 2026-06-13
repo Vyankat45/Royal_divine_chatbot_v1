@@ -59,18 +59,33 @@ LEAD_PHRASES = [
 ]
 
 
+INFORMATIONAL_PATTERNS = [
+    r"^(what|which|tell me|show me|list|describe|explain)",
+    r"^how (much|many|does|do|can)",
+    r"^(do you|can you|does your|could you)",
+    r"(tell me about|information about|details about|info about)",
+    r"(what is|what are|what do|what does)",
+]
+
+
 def is_lead(question):
     question_lower = question.lower()
 
+    has_quantity = bool(extract_quantity(question))
+
+    # If purely informational (no quantity, no purchase phrase), not a lead
+    is_info = any(re.search(p, question_lower) for p in INFORMATIONAL_PATTERNS)
+
     for phrase in LEAD_PHRASES:
         if phrase in question_lower:
-            return True
+            if not is_info or has_quantity:
+                return True
 
     if any(keyword in question_lower for keyword in LEAD_KEYWORDS):
-        return True
+        if not is_info or has_quantity:
+            return True
 
-    quantity = extract_quantity(question)
-    if quantity:
+    if has_quantity:
         return True
 
     return False
@@ -78,7 +93,7 @@ def is_lead(question):
 
 def extract_quantity(question):
     match = re.search(
-        r"(\d+(?:\.\d+)?)\s*(kg|kgs|kilo|kilos|kilogram|kilograms|ton|tons|tonne|g|gram|grams|mt|k)",
+        r"(\d+(?:\.\d+)?)\s*(kg|kgs|kilo|kilos|kilogram|kilograms|ton|tons|tonne|g|gram|grams|mt)\b",
         question.lower()
     )
     if match:

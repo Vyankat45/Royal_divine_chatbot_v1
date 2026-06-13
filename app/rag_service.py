@@ -33,6 +33,11 @@ from app.business_context import BUSINESS_CONTEXT
 
 from app.guardrails import is_business_question
 
+import logging
+import re
+
+logger = logging.getLogger(__name__)
+
 
 def return_and_log(session_id, question, response):
     log_conversation(
@@ -47,6 +52,7 @@ def ask_question(question, session_id):
     try:
         return _ask_question(question, session_id)
     except Exception as e:
+        logger.exception("Unhandled error for session %s: %s", session_id, e)
         response = (
             "I apologise, but I encountered a technical issue.\n\n"
             "Please contact our sales team at sales@royaldivineproducts.com or call +91-8451878725."
@@ -73,8 +79,11 @@ def _ask_question(question, session_id):
         if is_business_question(question) and not has_lead_info:
             return _answer_business_question(question, session_id, history)
 
-        cancel_phrases = ["no", "cancel", "stop", "nevermind", "never mind", "forget", "leave"]
-        if any(p in question.lower() for p in cancel_phrases):
+        cancel_pattern = re.compile(
+            r'\b(?:no\b(?!\w)|cancel|stop|nevermind|never mind|forget it|leave it)\b',
+            re.IGNORECASE
+        )
+        if cancel_pattern.search(question):
             del lead_memory[session_id]
             response = "No problem. Feel free to ask if you need any information about our products."
             add_message(session_id, "user", question)
@@ -138,11 +147,14 @@ def _ask_question(question, session_id):
             return return_and_log(session_id, question, response)
 
         # All order info collected — now ask for contact details
-        email = extract_email(question)
-        phone = extract_phone(question)
+        email = extract_email(question) or pl.get("email", "")
+        phone = extract_phone(question) or pl.get("phone", "")
 
         if email and phone:
-            name = extract_name(question) or pl.get("name", extract_email(question).split("@")[0].title() or "Customer")
+            name = extract_name(question) or pl.get("name", email.split("@")[0].title())
+            lead_memory[session_id]["email"] = email
+            lead_memory[session_id]["phone"] = phone
+            lead_memory[session_id]["name"] = name
 
             save_lead(
                 session_id=session_id,
@@ -167,6 +179,12 @@ def _ask_question(question, session_id):
             add_message(session_id, "user", question)
             add_message(session_id, "assistant", response)
             return return_and_log(session_id, question, response)
+
+        # Accumulate any contact info provided so far
+        if email:
+            lead_memory[session_id]["email"] = email
+        if phone:
+            lead_memory[session_id]["phone"] = phone
 
         # Need contact info
         response = (
