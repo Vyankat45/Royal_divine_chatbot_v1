@@ -121,10 +121,10 @@ function formatResponse(text) {
         if (!trimmed) return;
 
         /* ── contact block detection ── */
-        if (trimmed.includes("📧") || trimmed.includes("📞")) {
+        if (trimmed.includes("📧") || trimmed.includes("📞") || trimmed.includes("📍")) {
             html += `
                 <div class="resp-contact">
-                    ${inlineFormat(trimmed)}
+                    ${inlineFormat(trimmed).replace(/\n/g, '<br>')}
                 </div>
             `;
             return;

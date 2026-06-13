@@ -384,7 +384,7 @@ CHAT HISTORY:
 """
         answer = generate_answer(context=final_context, question=question)
         answer += (
-            "\n\n---\n"
+            "\n\n"
             "📧 Email: sales@royaldivineproducts.com\n"
             "📞 Phone: +91-8451878725\n"
             "📍 3rd Floor, Kothari House, 269, Raja Ram Mohan Roy Road, Girgaon, Mumbai-400004"
@@ -415,7 +415,7 @@ RETRIEVED CONTEXT:
     answer = generate_answer(context=final_context, question=question)
 
     answer += (
-        "\n\n---\n"
+        "\n\n"
         "📧 Email: sales@royaldivineproducts.com\n"
         "📞 Phone: +91-8451878725\n"
         "📍 3rd Floor, Kothari House, 269, Raja Ram Mohan Roy Road, Girgaon, Mumbai-400004"
