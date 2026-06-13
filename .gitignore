@@ -7,3 +7,4 @@ conversation_logs.xlsx
 .DS_Store
 dist/
 build/
+chroma_db_test/
