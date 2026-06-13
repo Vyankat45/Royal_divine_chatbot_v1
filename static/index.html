@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Divine — Premium Produce</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ══ NAVBAR ══════════════════════════════════════════════════════ -->
+<nav class="navbar">
+    <div class="nav-inner">
+        <div class="nav-brand">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+                <circle cx="15" cy="15" r="15" fill="#E8601C"/>
+                <path d="M9 20 L15 9 L21 20" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                <circle cx="15" cy="21.5" r="1.8" fill="white"/>
+            </svg>
+            <span class="brand-name">Royal Divine</span>
+        </div>
+        <div class="nav-links">
+            <a href="#">Products</a>
+            <a href="#">About</a>
+            <a href="#">Certificates</a>
+            <a href="#">Contact</a>
+        </div>
+        <button class="nav-cta">Enquire Now</button>
+    </div>
+</nav>
+
+<!-- ══ HERO ════════════════════════════════════════════════════════ -->
+<section class="hero">
+    <div class="hero-inner">
+        <div class="hero-badge">🌿 100% Organic &amp; Natural</div>
+        <h1 class="hero-title">Premium Produce,<br><span class="hero-accent">Delivered Worldwide</span></h1>
+        <p class="hero-sub">Dry fruits, spices, grains, fruits &amp; vegetables — sourced from trusted farms and exported to 60+ countries.</p>
+        <div class="hero-actions">
+            <button class="btn-primary" onclick="openChat()">Chat with our AI assistant</button>
+            <a href="#" class="btn-ghost">View Products →</a>
+        </div>
+    </div>
+    <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
+    <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
+</section>
+
+<!-- ══ STATS ════════════════════════════════════════════════════════ -->
+<div class="stats-bar">
+    <div class="stat"><strong>10+</strong><span>Years experience</span></div>
+    <div class="stat-div" aria-hidden="true"></div>
+    <div class="stat"><strong>4,000+</strong><span>Happy clients</span></div>
+    <div class="stat-div" aria-hidden="true"></div>
+    <div class="stat"><strong>60+</strong><span>Countries served</span></div>
+    <div class="stat-div" aria-hidden="true"></div>
+    <div class="stat"><strong>5</strong><span>Product categories</span></div>
+</div>
+
+<!-- ══ CATEGORIES ══════════════════════════════════════════════════ -->
+<section class="categories">
+    <div class="section-inner">
+        <p class="section-eyebrow">Our Products</p>
+        <h2 class="section-title">Farm-fresh categories</h2>
+        <div class="cat-grid">
+            <div class="cat-card">
+                <div class="cat-icon">🌰</div>
+                <h3>Dry Fruits</h3>
+                <p>Almonds, cashews, pistachios, walnuts, dates &amp; more</p>
+            </div>
+            <div class="cat-card">
+                <div class="cat-icon">🌿</div>
+                <h3>Spices</h3>
+                <p>Cumin, turmeric, black pepper, cinnamon &amp; 14 more</p>
+            </div>
+            <div class="cat-card">
+                <div class="cat-icon">🍎</div>
+                <h3>Fruits</h3>
+                <p>Apples, coconuts &amp; seasonal fresh produce</p>
+            </div>
+            <div class="cat-card">
+                <div class="cat-icon">🥦</div>
+                <h3>Vegetables</h3>
+                <p>Fresh corn &amp; a wide range of export vegetables</p>
+            </div>
+            <div class="cat-card">
+                <div class="cat-icon">🌾</div>
+                <h3>Grains</h3>
+                <p>Barley &amp; premium quality export-grade grains</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══ FOOTER ══════════════════════════════════════════════════════ -->
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <svg width="26" height="26" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+                <circle cx="15" cy="15" r="15" fill="#E8601C"/>
+                <path d="M9 20 L15 9 L21 20" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                <circle cx="15" cy="21.5" r="1.8" fill="white"/>
+            </svg>
+            <span>Royal Divine</span>
+        </div>
+        <p class="footer-addr">3rd Floor, Kothari House, 269, Raja Ram Mohan Roy Road, Girgaon, Mumbai-400004, India</p>
+        <p class="footer-contact">
+            <a href="tel:+918451878725">+91-8451878725</a> &nbsp;·&nbsp;
+            <a href="mailto:sales@royaldivineproducts.com">sales@royaldivineproducts.com</a>
+        </p>
+        <p class="footer-copy">© 2024-2025 Royaldivine Produce Products LLP. All rights reserved.</p>
+    </div>
+</footer>
+
+<!-- ══ FLOATING CHATBOT ═════════════════════════════════════════════ -->
+
+<!-- FAB trigger button -->
+<button class="fab" id="fab" onclick="openChat()" aria-label="Open AI assistant">
+    <svg id="fab-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+    </svg>
+    <span class="fab-pulse" aria-hidden="true"></span>
+    <span class="fab-badge" id="fab-badge" aria-hidden="true">1</span>
+</button>
+
+<!-- Chat popup widget -->
+<div class="chat-widget" id="chat-widget" role="dialog" aria-label="Royal Divine AI Assistant" aria-hidden="true">
+
+    <!-- widget header -->
+    <div class="widget-header">
+        <div class="widget-header-left">
+            <div class="widget-avatar" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 30 30" fill="none">
+                    <circle cx="15" cy="15" r="15" fill="#E8601C"/>
+                    <path d="M9 20 L15 9 L21 20" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                    <circle cx="15" cy="21.5" r="1.8" fill="white"/>
+                </svg>
+            </div>
+            <div>
+                <p class="widget-name">Royal Divine Assistant</p>
+                <p class="widget-status"><span class="status-dot" aria-hidden="true"></span>Online · usually replies instantly</p>
+            </div>
+        </div>
+        <button class="widget-close" onclick="closeChat()" aria-label="Close chat">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+        </button>
+    </div>
+
+    <!-- quick chips -->
+    <div class="widget-chips" id="widget-chips">
+        <button class="wchip" onclick="quickAsk('What dry fruits do you offer?')">🌰 Dry Fruits</button>
+        <button class="wchip" onclick="quickAsk('Tell me about your spices')">🌿 Spices</button>
+        <button class="wchip" onclick="quickAsk('Do you export internationally?')">🌍 Export</button>
+        <button class="wchip" onclick="quickAsk('What is your minimum order quantity?')">📦 MOQ</button>
+        <button class="wchip" onclick="quickAsk('What certifications do you have?')">✅ Certifications</button>
+    </div>
+
+    <!-- messages -->
+    <div class="widget-messages" id="widget-messages" role="log" aria-live="polite">
+        <div class="wtime-label">Today</div>
+        <div class="wmsg bot-wmsg">
+            <div class="wavatar bot-wavatar" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 30 30" fill="none">
+                    <circle cx="15" cy="15" r="15" fill="#E8601C"/>
+                    <path d="M9 20 L15 9 L21 20" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                    <circle cx="15" cy="21.5" r="1.8" fill="white"/>
+                </svg>
+            </div>
+            <div class="wbubble">
+                <p>👋 Hi! I'm the <strong>Royal Divine</strong> assistant.</p>
+                <p>I can help you with product details, pricing, export info, MOQ, and certifications. What would you like to know?</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- typing indicator -->
+    <div class="widget-typing" id="widget-typing" style="display:none;" aria-hidden="true">
+        <div class="wavatar bot-wavatar">
+            <svg width="14" height="14" viewBox="0 0 30 30" fill="none">
+                <circle cx="15" cy="15" r="15" fill="#E8601C"/>
+                <path d="M9 20 L15 9 L21 20" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                <circle cx="15" cy="21.5" r="1.8" fill="white"/>
+            </svg>
+        </div>
+        <div class="tdots"><span></span><span></span><span></span></div>
+    </div>
+
+
+    <!-- inline contact form -->
+    <div class="widget-contact-form" id="widget-contact-form" style="display:none;">
+        <div class="wcf-header">📋 Contact Details</div>
+        <input type="text" id="wcf-name" placeholder="Full Name" autocomplete="name">
+        <input type="email" id="wcf-email" placeholder="Email Address" autocomplete="email">
+        <input type="tel" id="wcf-phone" placeholder="Phone Number" autocomplete="tel">
+        <button class="wcf-submit" onclick="submitContactForm()">Submit Inquiry</button>
+    </div>
+
+    <!-- input -->
+    <div class="widget-input-row">
+        <input type="text" id="w-input" placeholder="Ask anything…" autocomplete="off" aria-label="Your message" />
+        <button id="w-send" onclick="sendMessage()" aria-label="Send">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+            </svg>
+        </button>
+    </div>
+</div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

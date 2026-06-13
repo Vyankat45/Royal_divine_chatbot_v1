@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+.env
+credentials.json
+conversation_logs.xlsx
+*.egg-info/
+.DS_Store
+dist/
+build/

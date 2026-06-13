@@ -1,0 +1,1 @@
+USER_AGENT = "RoyalDivineRAGBot/1.0"

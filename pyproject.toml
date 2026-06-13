@@ -1,0 +1,23 @@
+[project]
+name = "royal-divine-chatbot"
+version = "1.0.0"
+description = "AI Chatbot for Royal Divine Produce Products LLP — RAG-powered product inquiry and lead collection"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "beautifulsoup4>=4.15.0",
+    "chromadb>=1.5.9",
+    "fastapi>=0.136.3",
+    "groq>=1.4.0",
+    "gspread>=6.2.1",
+    "langchain>=1.3.4",
+    "langchain-chroma>=1.1.0",
+    "langchain-community>=0.4.2",
+    "langchain-huggingface>=1.2.2",
+    "langchain-text-splitters>=1.1.2",
+    "oauth2client>=4.1.3",
+    "pypdf>=6.13.1",
+    "python-dotenv>=1.2.2",
+    "rapidfuzz>=3.14.5",
+    "uvicorn>=0.49.0",
+]
